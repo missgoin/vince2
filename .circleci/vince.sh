@@ -20,7 +20,7 @@ VERSION=
 DEFCONFIG=${DEVICE}_defconfig
 
 # Select LTO variant ( Full LTO by default )
-DISABLE_LTO=0
+DISABLE_LTO=1
 THIN_LTO=0
 
 # Files
@@ -210,13 +210,13 @@ START=$(date +"%s")
            CROSS_COMPILE=aarch64-linux-gnu- \
            CROSS_COMPILE_ARM32=arm-linux-gnueabi \
            LLVM=1 \
-           #LLVM_IAS=1 \
-           AR=llvm-ar \
-           NM=llvm-nm \
-           LD=${LINKER} \
-           OBJCOPY=llvm-objcopy \
-           OBJDUMP=llvm-objdump \
-           STRIP=llvm-strip \
+           LLVM_IAS=1 \
+           #AR=llvm-ar \
+           #NM=llvm-nm \
+           #LD=${LINKER} \
+           #OBJCOPY=llvm-objcopy \
+           #OBJDUMP=llvm-objdump \
+           #STRIP=llvm-strip \
 	       V=$VERBOSE 2>&1 | tee error.log
 	elif [ -d ${KERNEL_DIR}/gcc64 ];
 	   then
