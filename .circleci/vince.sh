@@ -20,7 +20,7 @@ VERSION=
 DEFCONFIG=${DEVICE}_defconfig
 
 # Select LTO variant ( Full LTO by default )
-DISABLE_LTO=1
+DISABLE_LTO=0
 THIN_LTO=0
 
 # Files
@@ -48,7 +48,7 @@ FINAL_ZIP_ALIAS=Karenulvin-${TANGGAL}.zip
 ##----------------------------------------------------------##
 # Specify compiler.
 
-COMPILER=cosmic
+COMPILER=proton
 
 ##----------------------------------------------------------##
 # Specify Linker
@@ -192,8 +192,8 @@ START=$(date +"%s")
 	       CROSS_COMPILE=aarch64-linux-gnu- \
 	       CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 	       LLVM=1 \
-	       LLVM_IAS=1 \
-	       #LD=${LINKER} \
+	       #LLVM_IAS=1 \
+	       LD=${LINKER} \
 	       AR=llvm-ar \
 	       NM=llvm-nm \
 	       OBJCOPY=llvm-objcopy \
